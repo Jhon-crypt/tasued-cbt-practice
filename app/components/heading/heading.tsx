@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BsFillMortarboardFill } from "react-icons/bs";
 
 export default function Header(){
 
@@ -12,7 +13,10 @@ export default function Header(){
                         <div className="flex flex-wrap items-center">
                             <div className="w-auto mr-14">
                                 <a href="#">
-                                    <Image src="https://shuffle.dev/flaro-assets/logos/flaro-logo-black.svg" width={120} height={120} alt="Heading image" />
+                                    <div className="flex items-center" style={{ fontSize : "20px" }}>
+                                        <span className="mr-2"><BsFillMortarboardFill  style={{ fontSize : "25px", color : "#4f46e5" }}/></span>
+                                        <span><b>Tasued-Cbt-Practice</b></span>
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -22,14 +26,14 @@ export default function Header(){
                             <div className="w-auto hidden lg:block">
                                 <ul className="flex items-center mr-16">
                                     <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Features</a></li>
-                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Solutions</a></li>
-                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Resources</a></li>
-                                    <li className="font-medium hover:text-gray-700"><a href="#">Pricing</a></li>
+                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">About</a></li>
+                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Team</a></li>
+                                    <li className="font-medium hover:text-gray-700"><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
                             <div className="w-auto hidden lg:block">
                                 <div className="inline-block">
-                                    <button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Try 14 Days Free Trial</button>
+                                    <button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button>
                                 </div>
                             </div>
                             <div className="w-auto lg:hidden">
