@@ -13,12 +13,12 @@ export default function Header(){
                     <div className="w-auto">
                         <div className="flex flex-wrap items-center">
                             <div className="w-auto mr-14">
-                                <a href="#">
+                                <Link href="/">
                                     <div className="flex items-center" style={{ fontSize : "20px" }}>
                                         <span className="mr-2"><BsFillMortarboardFill  style={{ fontSize : "25px", color : "#4f46e5" }}/></span>
                                         <span><b>Tasued-Cbt-Practice</b></span>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
