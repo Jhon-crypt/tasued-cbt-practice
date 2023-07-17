@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BsFillMortarboardFill } from "react-icons/bs";
 
 export default function Header(){
@@ -33,7 +34,7 @@ export default function Header(){
                             </div>
                             <div className="w-auto hidden lg:block">
                                 <div className="inline-block">
-                                    <button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button>
+                                    <Link href='/practice'><button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button></Link>
                                 </div>
                             </div>
                             <div className="w-auto lg:hidden">
