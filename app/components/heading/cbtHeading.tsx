@@ -71,16 +71,16 @@ export default function CbtHeading(){
                         <div className="stat-desc"></div>
                     </div>
 
-                    <div className="stat place-items-center">
-                        <div className="stat-title">Users</div>
-                        <div className="stat-value text-secondary">4,200</div>
+                    <div className="stat place-items-center bg-primary text-white">
+                        <div className="stat-title"></div>
+                        <div className="stat-value">Submit</div>
                         <div className="stat-desc text-secondary"></div>
                     </div>
 
-                    <div className="stat place-items-center">
-                        <div className="stat-title">New Registers</div>
-                        <div className="stat-value">1,200</div>
-                        <div className="stat-desc">↘︎ 90 (14%)</div>
+                    <div className="stat place-items-center bg-error text-white">
+                        <div className="stat-title"></div>
+                        <div className="stat-value">Cancel</div>
+                        <div className="stat-desc"></div>
                     </div>
 
                 </div>
