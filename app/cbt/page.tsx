@@ -2,6 +2,7 @@ import Header from "../components/heading/heading"
 import Footer from "../components/footer/footer"
 import Image from "next/image"
 import CbtHeading from "../components/heading/cbtHeading"
+import CbtQuestions from "../components/section/cbtQuestionsSection"
 
 export default function Cbt(){
 
@@ -19,6 +20,8 @@ export default function Cbt(){
                     <div className="relative z-10 container px-4 mx-auto">
 
                         <CbtHeading />
+
+                        <CbtQuestions />
 
                     </div>
 

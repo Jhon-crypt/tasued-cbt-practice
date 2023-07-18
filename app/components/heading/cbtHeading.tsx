@@ -67,33 +67,37 @@ export default function CbtHeading(){
 
         <>
         
-            <h2 className="mb-16 text-4xl md:text-6xl font-bold font-heading text-center tracking-px-n leading-tight">
-                Edu 222
-            </h2>
+        <div className="">
 
-            <div className="flex justify-center">
-                <div className="stats shadow">
+          <h2 className="mb-16 text-4xl md:text-6xl font-bold font-heading text-center tracking-px-n leading-tight">
+            Edu 222
+          </h2>
 
-                    <div className="stat place-items-center">
-                        <div className="stat-title">Time left</div>
-                        <div className="stat-value">{formatElapsedTime(state.elapsedTime)}</div>
-                        <div className="stat-desc"></div>
-                    </div>
+          <div className="flex justify-center">
+            <div className="stats shadow">
 
-                    <div className="stat place-items-center bg-primary text-white" onClick={handleStop}>
-                        <div className="stat-title text-white">20190110249</div>
-                        <div className="stat-value">Submit</div>
-                        <div className="stat-desc text-secondary"></div>
-                    </div>
+              <div className="stat place-items-center">
+                <div className="stat-title">Time left</div>
+                <div className="stat-value">{formatElapsedTime(state.elapsedTime)}</div>
+                <div className="stat-desc"></div>
+              </div>
 
-                    <div className="stat place-items-center bg-error text-white" onClick={handleReset}>
-                        <div className="stat-title"></div>
-                        <div className="stat-value">Cancel</div>
-                        <div className="stat-desc"></div>
-                    </div>
+              <div className="stat place-items-center bg-primary text-white" onClick={handleStop}>
+                <div className="stat-title text-white">20190110249</div>
+                <div className="stat-value">Submit</div>
+                <div className="stat-desc text-secondary"></div>
+              </div>
 
-                </div>
+              <div className="stat place-items-center bg-error text-white" onClick={handleReset}>
+                <div className="stat-title"></div>
+                <div className="stat-value">Cancel</div>
+                <div className="stat-desc"></div>
+              </div>
+
             </div>
+          </div>
+
+        </div>
 
         </>
 
