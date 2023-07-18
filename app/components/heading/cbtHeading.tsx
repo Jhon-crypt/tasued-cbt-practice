@@ -15,6 +15,7 @@ export default function CbtHeading(){
       });
 
       useEffect(() => {
+
         let intervalId: any;
     
         if (state.isRunning) {
@@ -29,12 +30,20 @@ export default function CbtHeading(){
         return () => clearInterval(intervalId);
       }, [state.isRunning]);
 
-      const handleStart = () => {
-        if (!state.isRunning) {
-          setState({ isRunning: true, elapsedTime: state.elapsedTime });
+      useEffect(() => {
+
+        function startTime(){
+
+          if (!state.isRunning) {
+            setState({ isRunning: true, elapsedTime: state.elapsedTime });
+          }
+
         }
-      };
-    
+
+        startTime()
+
+      }, []);
+
       const handleStop = () => {
         if (state.isRunning) {
           setState({ isRunning: false, elapsedTime: state.elapsedTime });
@@ -71,13 +80,13 @@ export default function CbtHeading(){
                         <div className="stat-desc"></div>
                     </div>
 
-                    <div className="stat place-items-center bg-primary text-white">
-                        <div className="stat-title"></div>
+                    <div className="stat place-items-center bg-primary text-white" onClick={handleStop}>
+                        <div className="stat-title text-white">20190110249</div>
                         <div className="stat-value">Submit</div>
                         <div className="stat-desc text-secondary"></div>
                     </div>
 
-                    <div className="stat place-items-center bg-error text-white">
+                    <div className="stat place-items-center bg-error text-white" onClick={handleReset}>
                         <div className="stat-title"></div>
                         <div className="stat-value">Cancel</div>
                         <div className="stat-desc"></div>
@@ -86,10 +95,6 @@ export default function CbtHeading(){
                 </div>
             </div>
 
-            <button onClick={handleStart}>Start</button>
-      <button onClick={handleStop}>Stop</button>
-      <button onClick={handleReset}>Reset</button>
-        
         </>
 
     )
