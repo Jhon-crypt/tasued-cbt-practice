@@ -7,9 +7,9 @@ export default function PracticeTabs(){
 
     const [activeTab, setActiveTab] = useState(0);
 
-  const handleTabClick = (index : any) => {
-    setActiveTab(index);
-  };
+    const handleTabClick = (index: any) => {
+        setActiveTab(index);
+    };
 
     const tabList = [
         { label: '100 lvl', component: <CositComponent /> },
