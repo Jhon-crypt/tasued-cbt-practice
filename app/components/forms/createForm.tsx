@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import TestForm from './testForm';
+import ExamForm from './examForm';
 
 
 export default function CreateForm(){
@@ -76,7 +77,7 @@ function ExamFormComponent(){
 
         <>
         
-
+            <ExamForm />
         
         </>
 

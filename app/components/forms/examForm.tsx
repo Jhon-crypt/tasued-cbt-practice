@@ -1,14 +1,10 @@
-import InfoAlert from "../alerts/infoAlert"
-
-export default function TestForm(){
+export default function ExamForm(){
 
     return (
 
         <>
         
             <div className="text-center max-w-md mx-auto">
-
-                <InfoAlert />
 
                 <label className="block mb-5 w-full">
                     <input className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="signInInput2-1" type="text" placeholder="Course Code" />
@@ -35,7 +31,7 @@ export default function TestForm(){
             </div>
         
         </>
-    
+
     )
 
 }
