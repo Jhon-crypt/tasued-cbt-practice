@@ -48,7 +48,7 @@ export default function DashboardSidebar(){
                         </li>
 
                         <li>
-                            <Link href="/notify" aria-label="dashboard" className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-gray-600 hover:text-white hover:bg-blue-700">
+                            <Link href="/notification" aria-label="dashboard" className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-gray-600 hover:text-white hover:bg-blue-700">
                                 <AiOutlineBell style={{ fontSize: "20px" }}/>
                                 <span className="-mr-1 font-medium">Notifications</span>
                             </Link>

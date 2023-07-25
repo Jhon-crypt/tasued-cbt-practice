@@ -8,7 +8,7 @@ export default function TestForm(){
         
             <div className="text-center max-w-md mx-auto">
 
-                <InfoAlert />
+                <InfoAlert content="The default total questions for test is 20"/>
 
                 <label className="block mb-5 w-full">
                     <input className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="signInInput2-1" type="text" placeholder="Course Code" />

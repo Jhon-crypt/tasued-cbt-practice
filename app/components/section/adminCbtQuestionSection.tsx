@@ -38,13 +38,14 @@ export default function AdminCbtQuestionSection(){
                                                 <div className="stat-desc">Jan 1st - Feb 1st</div>
                                             </div>
 
-                                            <div className="stat bg-primary text-white">
-                                                <div className="stat-value">Practice<br />Now</div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
+
+                                <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
+                                    View stats
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -52,7 +53,7 @@ export default function AdminCbtQuestionSection(){
                     <div className="md:col-span-2 lg:col-span-1">
 
                         <div className="">
-                            <div className="p-6 h-full bg-white bg-opacity-60 border rounded-3xl">
+                            <div className="w-full p-6 h-full bg-white bg-opacity-60 border rounded-3xl">
                                 <div className="flex flex-col justify-between h-full">
                                     <div className="mb-5 block">
                                         <div className="flex flex-wrap mb-4 -m-2">
@@ -72,13 +73,14 @@ export default function AdminCbtQuestionSection(){
                                                 <div className="stat-desc">Jan 1st - Feb 1st</div>
                                             </div>
 
-                                            <div className="stat bg-primary text-white">
-                                                <div className="stat-value">Practice<br />Now</div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
+
+                                <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
+                                    View stats
+                                </button>
+
                             </div>
                         </div>
 
