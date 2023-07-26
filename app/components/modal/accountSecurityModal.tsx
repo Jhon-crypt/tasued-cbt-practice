@@ -1,18 +1,13 @@
+import { MdOutlineSecurity } from "react-icons/md"
 
-import { FaUserCog } from "react-icons/fa"
-
-import EmailUpdateForm from "../forms/emailUpdateForm"
-
-import FullnameUpdateForm from "../forms/fullnameUpdateForm"
-
-export default function AccountSettingsModal(){
+export default function AccountSecurityModal(){
 
     return (
 
         <>
-
+        
             {/* Put this part before </body> tag */}
-            <input type="checkbox" id="accountSettingModal" className="modal-toggle" />
+            <input type="checkbox" id="accountSecurityModal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
 
@@ -21,7 +16,7 @@ export default function AccountSettingsModal(){
                         <div className="inline-flex items-center space-x-2">
 
                             <div>
-                                <FaUserCog style={{ fontSize: "25px" }} />
+                                <MdOutlineSecurity style={{ fontSize: "25px" }} />
                             </div>
                             <div>Account Settings</div>
 
@@ -29,12 +24,10 @@ export default function AccountSettingsModal(){
 
                     </h3>
 
-                    <EmailUpdateForm />
-
-                    <FullnameUpdateForm />
+                   
 
                     <div className="modal-action">
-                        <label htmlFor="accountSettingModal" className="btn">Close!</label>
+                        <label htmlFor="accountSecurityModal" className="btn">Close!</label>
                     </div>
                 </div>
             </div>

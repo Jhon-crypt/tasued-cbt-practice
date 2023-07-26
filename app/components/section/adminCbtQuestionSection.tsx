@@ -1,5 +1,5 @@
 import { BsFillMortarboardFill } from "react-icons/bs";
-
+import Link from "next/link";
 
 export default function AdminCbtQuestionSection(){
 
@@ -42,9 +42,11 @@ export default function AdminCbtQuestionSection(){
                                     </div>
                                 </div>
 
-                                <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
+                                <Link href="/stats">
+                                <button  className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
                                     View stats
                                 </button>
+                                </Link>
 
                             </div>
                         </div>
@@ -77,9 +79,11 @@ export default function AdminCbtQuestionSection(){
                                     </div>
                                 </div>
 
-                                <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
+                                <Link href="/stats">
+                                <button  className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
                                     View stats
                                 </button>
+                                </Link>
 
                             </div>
                         </div>

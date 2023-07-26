@@ -1,6 +1,7 @@
 import { FaUserCog } from "react-icons/fa"
 import { MdOutlineSecurity } from "react-icons/md"
 import AccountSettingsModal from "../modal/accountSettingModal"
+import AccountSecurityModal from "../modal/accountSecurityModal"
 
 export default function SettingsList(){
 
@@ -19,16 +20,18 @@ export default function SettingsList(){
                 </div>
             </label>
 
-            <div className="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent bg-gradient-to-r from-transparent to-transparent hover:from-slate-100 transition ease-linear duration-150">
+            <label htmlFor="accountSecurityModal" className="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent bg-gradient-to-r from-transparent to-transparent hover:from-slate-100 transition ease-linear duration-150">
                 <div className="inline-flex items-center space-x-2">
                     <div>
                         <MdOutlineSecurity style={{ fontSize: "25px"}} />
                     </div>
                     <div>Account Security</div>
                 </div>
-            </div>
+            </label>
 
             <AccountSettingsModal />
+
+            <AccountSecurityModal />
         
         </>
 
