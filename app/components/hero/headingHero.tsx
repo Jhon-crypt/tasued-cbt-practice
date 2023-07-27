@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import {RegisterLink} from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default function HeadingHero(){
 
@@ -36,7 +37,7 @@ export default function HeadingHero(){
                                                         </svg>
                                                     </div>
                                                     <div className="w-auto p-1">
-                                                        <span>Signup</span>
+                                                        <RegisterLink>Signup</RegisterLink>
                                                     </div>
                                                 </div>
                                             </button>
