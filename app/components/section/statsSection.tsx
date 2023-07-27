@@ -32,11 +32,11 @@ export default function StatsSection(){
                                         </div>
                                         {/*  End of stats1 */}
 
-                                        <div className="stats shadow">
+                                        <div className="stats shadow text-error">
 
                                             <div className="stat">
-                                                <div className="stat-title">Students that failed</div>
-                                                <div className="stat-value">40%</div>
+                                                <div className="stat-title ">Students that failed</div>
+                                                <div className="stat-value ">40%</div>
                                                 
                                             </div>
 
@@ -60,7 +60,7 @@ export default function StatsSection(){
                                                 </div>
                                             </Link>
 
-                                            <Link href="/practice/inputMatric">
+                                            <Link href="/createQuestions">
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Create<br />Question</div>
                                                 </div>

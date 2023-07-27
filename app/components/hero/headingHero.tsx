@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function HeadingHero(){
 
@@ -19,11 +20,11 @@ export default function HeadingHero(){
                                     <p className="mb-11 text-lg text-gray-600 font-medium leading-normal md:max-w-md">Tasued Cbt Parctice was built to help students feel more confident and prepared for exams and tests, ultimately helping to reduce the rate of failure in the institution and reduce the tension and fear associated with cbt exams and tests.</p>
                                     <div className="flex flex-wrap -m-2.5 mb-9">
                                         <div className="w-auto p-2.5">
-                                            <a href="#">
+                                        <Link href="/practice">
                                             <button className="py-4 px-6 w-full text-white font-semibold border border-indigo-700 rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
                                                 Practice Test
                                             </button>
-                                            </a>
+                                        </Link>
                                         </div>
                                         <div className="w-auto p-2.5">
                                             <a href="#">
