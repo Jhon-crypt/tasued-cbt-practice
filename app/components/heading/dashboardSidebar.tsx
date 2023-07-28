@@ -4,7 +4,7 @@ import { AiOutlinePlusCircle, AiOutlineBell } from "react-icons/ai"
 import Link from "next/link";
 import LogoutModal from "../modal/LogoutModal";
 
-export default function DashboardSidebar(){
+export default function DashboardSidebar(props: { fname: any, lname : any }){
 
     return (
 
@@ -24,11 +24,15 @@ export default function DashboardSidebar(){
                     <div className="mt-8 text-center">
                         <div className="flex items-center justify-center">
 
-                            <BiSolidUserCircle style={{ fontSize: "100px", color: "#4f46e5" }} />
+                            <div className="p-5 rounded-full bg-blue-700 text-white font-bold text-2xl">
+                                
+                                {props.fname[0]} {props.lname[0]}
+                              
+                            </div>
 
                         </div>
 
-                        <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Esther Akanbi</h5>
+                        <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{props.fname} {props.lname}</h5>
                         <span className="hidden text-gray-400 lg:block">Admin</span>
                     </div>
 
