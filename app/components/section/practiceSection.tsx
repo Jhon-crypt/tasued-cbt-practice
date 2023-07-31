@@ -65,7 +65,7 @@ export default async function PracticeSection(props: { admin_id: any}){
                                     </div>
                                 </div>
 
-                                <Link href="/stats">
+                                <Link href={`/stats/${practice.practice_id}/${practice.course_code}`}>
                                     <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
                                         View stats
                                     </button>

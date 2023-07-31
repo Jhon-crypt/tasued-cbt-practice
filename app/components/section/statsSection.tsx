@@ -1,7 +1,7 @@
 import Link from "next/link"
 import StudentsTables from "../tables/studentsTable"
 
-export default function StatsSection(){
+export default function StatsSection(props: { heading: any}){
 
     return (
 
@@ -10,7 +10,7 @@ export default function StatsSection(){
             <div className="px-6 pt-6 2xl:container">
 
                 <h2 className="mt-10 mb-16 text-4xl md:text-5xl font-bold font-heading text-center tracking-px-n leading-tight">
-                    Stats for Edu221
+                    Stats for {props.heading}
                 </h2>
 
                 <section className="py-8">
