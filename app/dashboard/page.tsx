@@ -1,13 +1,17 @@
 import DashboardSidebar from "../components/heading/dashboardSidebar"
 import DashboardHeading from "../components/heading/dashboardHeading"
-import AdminCbtQuestionSection from "../components/section/adminCbtQuestionSection"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import PracticeSection from "../components/section/practiceSection";
+import { Suspense } from "react";
 
 export default function Dashboard() {
 
     const { getUser } = getKindeServerSession();
 
     const user : any = getUser()
+
+    //encoding the admin id
+    const encoded_user_id = Buffer.from(user.id).toString('base64');
 
     return (
 
@@ -19,7 +23,7 @@ export default function Dashboard() {
 
                 <DashboardHeading headingContent="Dashboard" />
 
-                <AdminCbtQuestionSection />
+                <PracticeSection admin_id={encoded_user_id} />
                 
             </div>
 
