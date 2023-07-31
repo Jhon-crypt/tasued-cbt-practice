@@ -8,7 +8,7 @@ export default function TestForm(){
 
     const [loading, setLoading] = useState(false)
 
-    const [successAlertStatus, setSuccessAlertStatus] = useState(true)
+    const [successAlertStatus, setSuccessAlertStatus] = useState(false)
 
     const [errorAlertStatus, setErrorAlertStatus] = useState(false)
 
@@ -87,7 +87,7 @@ export default function TestForm(){
                     <>
                         <div onClick={closeSuccessAlert}>
                             <SuccessAlert content="You have successfully created a test" />
-                            <button className="mb-2 btn btn-outline btn-success">View Test</button>
+                            <button className="mb-2 btn btn-outline btn-success btn-wide">View Test</button>
                         </div>
                     
                     </>

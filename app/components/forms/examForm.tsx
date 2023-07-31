@@ -1,6 +1,77 @@
+"use client"
+import { useState } from "react"
 import InfoAlert from "../alerts/infoAlert"
+import ErrorAlert from "../alerts/errorAlert"
+import SuccessAlert from "../alerts/successAlert"
+
 
 export default function ExamForm(){
+
+    const [loading, setLoading] = useState(false)
+
+    const [successAlertStatus, setSuccessAlertStatus] = useState(false)
+
+    const [errorAlertStatus, setErrorAlertStatus] = useState(false)
+
+    const [practice_id, setPracticeId] = useState("")
+
+    async function handleCreateExam(event : any){
+
+        setLoading(true)
+
+        event.preventDefault()
+
+        try{
+
+            const exam_form_data = {
+                courseCode: String(event.target.course_code.value),
+                level: String(event.target.level.value),
+                timeLimit: String(event.target.time_limit.value)
+            }
+
+            //console.log(exam_form_data)
+
+            const response = await fetch('/api/createPractice/createExamPractice', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(exam_form_data),
+            });
+
+            const response_data = await response.json()
+
+            if (response_data.message === true) {
+
+                setLoading(false)
+
+                setSuccessAlertStatus(true)
+
+                setPracticeId(response_data.practiceId)
+
+                console.log(practice_id)
+
+            }else if(response_data.message === false){
+
+                setLoading(false)
+
+                setErrorAlertStatus(true)
+
+            }
+        
+        }catch(error){
+
+            console.log(error)
+
+        }
+
+    }
+
+    function closeSuccessAlert(){
+
+        setSuccessAlertStatus(false)
+        
+    }
 
     return (
 
@@ -10,27 +81,71 @@ export default function ExamForm(){
 
                 <InfoAlert content="The default total questions for exam is 40"/>
 
-                <label className="block mb-5 w-full">
-                    <input className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="signInInput2-1" type="text" placeholder="Course Code" />
-                </label>
+                {successAlertStatus ?
 
-                <label className="block mb-5 w-full">
-                    <select className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg" name="field-name">
-                        <option>Level</option>
-                        <option>100 level</option>
-                        <option>200 level</option>
-                        <option>300 level</option>
-                        <option>400 level</option>
-                    </select>
-                </label>
+                    <>
+                        <div onClick={closeSuccessAlert}>
+                            <SuccessAlert content="You have successfully created an exam" />
+                            <button className="mb-2 btn btn-outline btn-success btn-wide">View Exam</button>
+                        </div>
 
-                <label className="block mb-5 w-full">
-                    <input className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="signInInput2-1" type="number" placeholder="Time limit e.g 10 minutes" />
-                </label>
+                    </>
 
-                <a href="/cbt">
-                    <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Continue</button>
-                </a>
+                    :
+                    <></>
+
+                }
+
+                {errorAlertStatus ?
+
+                    <>
+                        <ErrorAlert content="An error occurred while creating test" />
+                    </>
+                    :
+                    <></>
+
+                }
+
+
+                <form onSubmit={handleCreateExam}>
+                    <label className="block mb-5 w-full">
+                        <input id="course_code" className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" type="text" placeholder="Course Code" />
+                    </label>
+
+                    <label className="block mb-5 w-full">
+                        <select id="level" className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg" name="field-name">
+                            <option>Level</option>
+                            <option>100 level</option>
+                            <option>200 level</option>
+                            <option>300 level</option>
+                            <option>400 level</option>
+                        </select>
+                    </label>
+
+                    <label className="block mb-5 w-full">
+                        <input id="time_limit" className="w-full px-4 py-3.5 text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" type="number" placeholder="Time limit e.g 10 minutes" />
+                    </label>
+
+                    {loading ?
+
+                        <>
+
+                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200 opacity-50 cursor-not-allowed" disabled type="submit">
+                                Creating exam...
+                            </button>
+
+                        </>
+                        :
+                        <>
+
+                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">
+                                Create exam
+                            </button>
+
+                        </>
+                    }
+
+                </form>
 
             </div>
         
