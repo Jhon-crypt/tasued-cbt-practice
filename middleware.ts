@@ -7,7 +7,8 @@ export const config = {
         "/createQuestions",
         "/notification",
         "/settings",
-        "/stats"
+        "/stats",
+        "/api/createPractice/createTestPractice"
 
     ]
 };
