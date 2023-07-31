@@ -2,6 +2,7 @@ import DashboardSidebar from "../components/heading/dashboardSidebar"
 import DashboardHeading from "../components/heading/dashboardHeading"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import PracticeSection from "../components/section/practiceSection";
+import LoaderSection from "../components/section/loaderSection";
 import { Suspense } from "react";
 
 export default function Dashboard() {
@@ -23,7 +24,11 @@ export default function Dashboard() {
 
                 <DashboardHeading headingContent="Dashboard" />
 
-                <PracticeSection admin_id={encoded_user_id} />
+                <Suspense fallback={<LoaderSection />}>
+
+                    <PracticeSection admin_id={encoded_user_id} />
+
+                </Suspense>
                 
             </div>
 

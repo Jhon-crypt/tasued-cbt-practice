@@ -1,6 +1,6 @@
-import DashboardSidebar from "../components/heading/dashboardSidebar"
-import DashboardHeading from "../components/heading/dashboardHeading"
-import StatsSection from "../components/section/statsSection"
+import DashboardSidebar from "../../components/heading/dashboardSidebar"
+import DashboardHeading from "../../components/heading/dashboardHeading"
+import StatsSection from "../../components/section/statsSection"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default function Stats(){

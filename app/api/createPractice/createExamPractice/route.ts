@@ -36,7 +36,8 @@ export async function POST(request : Request){
             practice_id: `${practice_id}`,
             course_code: `${courseCode}`,
             level: `${level}`,
-            time_limit: `${timeLimit}`
+            time_limit: `${timeLimit}`,
+            students_count: 0
         });
 
     if (error) {
