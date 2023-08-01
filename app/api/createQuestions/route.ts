@@ -34,8 +34,9 @@ export async function POST(request: Request){
             option_a: `${optionA}`,
             option_b: `${optionB}`,
             option_c: `${optionC}`,
-            option_d: `${optionC}`,
-            question_id: `${question_id}`
+            option_d: `${optionD}`,
+            question_id: `${question_id}`,
+            answer: `${answer}`
         });
 
     if (error) {

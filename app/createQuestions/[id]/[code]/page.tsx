@@ -19,7 +19,7 @@ export default function CreateQuestion({ params }: { params: { id: any, code: an
 
             <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
 
-                <DashboardHeading headingContent="Create Question For Edu something" />
+                <DashboardHeading headingContent={`Create Question For ${params.code}`} />
 
                 <CreateQuestionSection heading={params.code} id={params.id}/>
 

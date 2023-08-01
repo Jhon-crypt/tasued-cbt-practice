@@ -19,7 +19,7 @@ export default function CreateQuestionSection(props: { heading: any, id: any}){
                     </label>
                 </div>
 
-                <QuestionSection />
+                <QuestionSection id={props.id}/>
 
             </div>
 

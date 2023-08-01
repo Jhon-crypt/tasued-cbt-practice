@@ -4,10 +4,10 @@ export const config = {
     matcher: [
         "/dashboard",
         "/create",
-        "/createQuestions",
+        "/createQuestions/[id]/[code]",
         "/notification",
         "/settings",
-        "/stats",
+        "/stats/[id]/[code]",
         "/api/createPractice/createTestPractice"
 
     ]
