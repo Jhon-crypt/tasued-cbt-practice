@@ -10,8 +10,10 @@ export default function CreateQuestionModal(props: { id: any}){
             <input type="checkbox" id="createQuestionModal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Create Question</h3>
-                    
+                    <div className="flex justify-center">
+                        <h3 className="font-bold text-lg">Create Question</h3>
+                    </div>
+
                     <CreateQuestionForm practiceId={props.id}/>
                     
                     <div className="modal-action">

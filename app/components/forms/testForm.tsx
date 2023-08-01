@@ -86,7 +86,7 @@ export default function TestForm(){
 
                     <>
                         <div onClick={closeSuccessAlert}>
-                            <SuccessAlert content="You have successfully created a test" />
+                            <SuccessAlert text_size="text-lg" content="You have successfully created a test" />
                             <button className="mb-2 btn btn-outline btn-success btn-wide">View Test</button>
                         </div>
                     
