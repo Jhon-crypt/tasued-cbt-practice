@@ -1,6 +1,6 @@
 import CreateQuestionForm from "../forms/createQuestionForm"
 
-export default function CreateQuestionModal(){
+export default function CreateQuestionModal(props: { id: any}){
 
     return (
 
@@ -12,7 +12,7 @@ export default function CreateQuestionModal(){
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Create Question</h3>
                     
-                    <CreateQuestionForm />
+                    <CreateQuestionForm practiceId={props.id}/>
                     
                     <div className="modal-action">
                         <label htmlFor="createQuestionModal" className="btn">Close!</label>

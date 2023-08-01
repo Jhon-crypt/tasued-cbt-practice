@@ -1,7 +1,9 @@
 import Link from "next/link"
 import StudentsTables from "../tables/studentsTable"
+import PassedStudentsStatsSection from "./passedStudentsStatsSection"
+import FailedStudentsStatsSection from "./failedStudentsStatsSection"
 
-export default function StatsSection(props: { heading: any}){
+export default function StatsSection(props: { heading: any, id: any}){
 
     return (
 
@@ -21,26 +23,10 @@ export default function StatsSection(props: { heading: any}){
                                 <div className="p-6 bg-white shadow rounded">
                                     <div className="flex justify-between mb-4">
 
-                                        <div className="stats shadow">
-
-                                            <div className="stat">
-                                                <div className="stat-title">Students that passed</div>
-                                                <div className="stat-value">60%</div>
-                                                
-                                            </div>
-
-                                        </div>
+                                        <PassedStudentsStatsSection />
                                         {/*  End of stats1 */}
 
-                                        <div className="stats shadow text-error">
-
-                                            <div className="stat">
-                                                <div className="stat-title ">Students that failed</div>
-                                                <div className="stat-value ">40%</div>
-                                                
-                                            </div>
-
-                                        </div>
+                                        <FailedStudentsStatsSection />
                                         {/*  End of stats1 */}
 
 
@@ -60,7 +46,7 @@ export default function StatsSection(props: { heading: any}){
                                                 </div>
                                             </Link>
 
-                                            <Link href="/createQuestions">
+                                            <Link href={`/createQuestions/${props.id}/${props.heading}`}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Create<br />Question</div>
                                                 </div>

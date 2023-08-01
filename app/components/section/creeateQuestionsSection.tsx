@@ -1,7 +1,7 @@
 import QuestionSection from "./questionsSection"
 import CreateQuestionModal from "../modal/createQuestionModal"
 
-export default function CreateQuestionSection(){
+export default function CreateQuestionSection(props: { heading: any, id: any}){
 
     return (
 
@@ -10,7 +10,7 @@ export default function CreateQuestionSection(){
             <div className="px-6 pt-6 2xl:container">
 
                 <h2 className="mt-10 mb-16 text-4xl md:text-5xl font-bold font-heading text-center tracking-px-n leading-tight">
-                    Create Questions
+                    Create Questions for {props.heading}
                 </h2>
 
                 <div className="flex justify-center">
@@ -23,7 +23,7 @@ export default function CreateQuestionSection(){
 
             </div>
 
-            <CreateQuestionModal />
+            <CreateQuestionModal id={props.id}/>
         
         </>
 
