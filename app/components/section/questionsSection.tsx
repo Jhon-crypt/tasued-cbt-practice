@@ -75,7 +75,7 @@ export default function QuestionSection(props: {id: any}){
 
     }, [])
 
-    const deleteQuestion = async (question_id : any) => {
+    const deleteQuestion = async (id : any) => {
 
         try {
 
@@ -84,7 +84,7 @@ export default function QuestionSection(props: {id: any}){
             const { error } = await supabase
                 .from('questions')
                 .delete()
-                .eq('question_id', `${question_id}`)
+                .eq('id', `${id}`)
 
             if(error){
 
@@ -94,7 +94,7 @@ export default function QuestionSection(props: {id: any}){
 
                 setDeleteLoading(false)
 
-                setQuestions(questions.filter((x: any) => x.id != question_id))
+                setQuestions(questions.filter((x: any) => x.id != id))
 
             }
 
@@ -167,7 +167,7 @@ export default function QuestionSection(props: {id: any}){
                                                     Answer : {question.answer}
                                                 </button>
 
-                                                <button onClick={() => deleteQuestion(question.question_id)} className="btn btn-error">
+                                                <button onClick={() => deleteQuestion(question.id)} className="btn btn-error">
                                                     Delete question
                                                 </button>
 
