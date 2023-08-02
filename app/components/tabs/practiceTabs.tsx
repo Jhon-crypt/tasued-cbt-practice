@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import FirstLevelPracticeSection from '../section/100levelPractice';
 import SecondLevelPracticeSection from '../section/200levelPractice';
 import ThirdLevelPracticeSection from '../section/300levelPractice';
+import FourthLevelPracticeSection from '../section/400levelPractice';
 
 export default function PracticeTabs(){
 
@@ -89,7 +90,7 @@ function CositComponent() {
 
         <>
         
-            
+            <FourthLevelPracticeSection />
         
         </>
 
