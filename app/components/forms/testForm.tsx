@@ -115,10 +115,10 @@ export default function TestForm(){
                     <label className="block mb-5 w-full">
                         <select id="level" className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg" name="field-name">
                             <option>Level</option>
-                            <option>100 level</option>
-                            <option>200 level</option>
-                            <option>300 level</option>
-                            <option>400 level</option>
+                            <option>100-level</option>
+                            <option>200-level</option>
+                            <option>300-level</option>
+                            <option>400-level</option>
                         </select>
                     </label>
 
