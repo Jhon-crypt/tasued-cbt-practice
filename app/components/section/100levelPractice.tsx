@@ -96,7 +96,7 @@ export default function FirstLevelPracticeSection(){
                                                 <div className="stat-desc">{first_level.date_created}</div>
                                             </div>
 
-                                            <Link href="/practice/inputMatric">
+                                            <Link href={`/practice/inputMatric/knknjncdkn`}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
                                                 </div>
