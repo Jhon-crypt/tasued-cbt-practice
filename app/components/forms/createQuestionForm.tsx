@@ -78,7 +78,7 @@ export default function CreateQuestionForm(props: { practiceId: any}){
                             <span className="label-text">Option A</span>
                         </label>
                         <input id="optionA" type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                    </div>
+                    </div> 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Option B</span>
