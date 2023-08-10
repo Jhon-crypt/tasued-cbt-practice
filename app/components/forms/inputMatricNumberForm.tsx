@@ -35,6 +35,18 @@ export default function InputMatricNumberForm(props: { practice_id: any}){
                 body: JSON.stringify(input_matric_form_data),
             });
 
+            const response_data = await response.json()
+
+            if(response_data.message === true){
+
+                console.log("Inserted")
+
+            }else{
+
+                console.log("Could not insert")
+
+            }
+
         } catch (error) {
 
             console.log(error)
