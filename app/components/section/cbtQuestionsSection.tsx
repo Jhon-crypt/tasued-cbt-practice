@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import LoaderSection from './loaderSection'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
 export default function CbtQuestions(props: { practice_id: any, student_id: any, matric_num: any }){
@@ -34,7 +35,7 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
                     setCbtQuestions(questions)
 
-                    console.log(cbt_questions)
+                    //console.log(cbt_questions)
 
                 }else{
 
@@ -64,86 +65,66 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
             <div className="flex justify-center mt-10 mb-10">
 
-                <div className="grid grid-flow-row auto-rows-max">
+                {loading?
 
-                    <div>
-                        <div className="card w-96 bg-base-100 shadow-xl m-5">
-                            <div className="card-body">
-                                <p className="text-sm text-slate-400">Question 1 {props.matric_num}</p>
-                                <h2 className="card-title">Do You Think School Is Scam</h2>
+                    <>
 
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">A. Yes</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">B. No</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
+                        <LoaderSection />
+                    
+                    </>
+
+                    :
+
+                    <>
+                    
+                        <div className="grid grid-flow-row auto-rows-max">
+
+                            {cbt_questions.map((questions: any) => (
+
+                                <div className="card w-96 bg-base-100 shadow-xl m-5">
+                                    <div className="card-body">
+                                        <p className="text-sm text-slate-400">Question 1</p>
+                                        <h2 className="card-title">{questions.question_name}</h2>
+
+                                        <div className="form-control">
+                                            <label className="label cursor-pointer">
+                                                <span className="label-text">A. {questions.option_a}</span>
+                                                
+                                            </label>
+                                        </div>
+                                        <div className="form-control">
+                                            <label className="label cursor-pointer">
+                                                <span className="label-text">B. {questions.option_b}</span>
+                                                
+                                            </label>
+                                        </div>
+
+                                        <div className="form-control">
+                                            <label className="label cursor-pointer">
+                                                <span className="label-text">C. {questions.option_c}</span>
+                                                
+                                            </label>
+                                        </div>
+
+                                        <div className="form-control">
+                                            <label className="label cursor-pointer">
+                                                <span className="label-text">D. {questions.option_d}</span>
+                                                
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">C. Maybe</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
+                            ))}
 
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">D. I dont know</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-                            </div>
+
                         </div>
+                    
+                    </>
 
-                    </div>
+                }
 
-                    <div>
-                        <div className="card w-96 bg-base-100 shadow-xl m-5">
-                            <div className="card-body">
-                                <p className="text-sm text-slate-400">Question 1</p>
-                                <h2 className="card-title">Who's the president of Nigeria</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">A : Option</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">B : Option</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">C : Option</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">D : Option</span>
-                                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                                    </label>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
+                
 
             </div>
         
