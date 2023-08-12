@@ -17,6 +17,10 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
     const [loading2, setLoading2] = useState(false)
 
+    const [selectedAnswer, setSelectedAnswer] = useState({});
+
+    const [hiddenAnswer, setHiddenAnswerValue] = useState('');
+
     useEffect(() => {
 
         async function getCbtQuestions(){
@@ -61,120 +65,134 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
     }, [])
 
-    async function submitQuestions(event : any){
 
-        setLoading2(true)
+    
+    function handleSelectQuestions(questionId: any, optionId: any) {
+        {
 
-        event.preventDefault()
+            setLoading2(true)
 
-        try{
-
-            const submitted_answers = {
-                Student_answer : String(event.target.choice.value),
-                Answer : String(event.target.ans.value)
-            }
-
-        }catch(error){
-
-            console.log(error)
+            setSelectedAnswer((prevAnswers) => ({
+                ...prevAnswers,
+                [questionId]: optionId,
+            }))
 
         }
 
     }
 
-    return (
+    function handleHiddenInputField(e: any){
+        setHiddenAnswerValue(e.target.value);
+    };
+    
+    const submitQuestions = async (event: any) => {
 
-        <>
+        event.preventDefault()
 
-            <div className="flex justify-center mt-10 mb-10">
+        console.log(selectedAnswer)
 
-                {loading?
+        console.log(hiddenAnswer)
 
-                    <>
+    }
 
-                        <LoaderSection />
-                    
-                    </>
 
-                    :
 
-                    <>
-                    
-                        <div className="grid grid-flow-row auto-rows-max">
+        return (
 
-                            <form onSubmit={submitQuestions}>
+            <>
 
-                                {cbt_questions.map((questions: any) => (
+                <div className="flex justify-center mt-10 mb-10">
 
-                                    <div className="card w-96 bg-base-100 shadow-xl m-5" key={questions.key}>
-                                        <div className="card-body">
-                                            <p className="text-sm text-slate-400">Question 1</p>
-                                            <h2 className="card-title">{questions.question_name}</h2>
+                    {loading ?
 
-                                            <div className="form-control">
-                                                <label className="label cursor-pointer">
-                                                    <span className="label-text">A. {questions.option_a}</span>
+                        <>
 
+                            <LoaderSection />
+
+                        </>
+
+                        :
+
+                        <>
+
+                            <div className="grid grid-flow-row auto-rows-max">
+
+                                <form>
+
+                                    {cbt_questions.map((questions: any) => (
+
+                                        <div className="card w-96 bg-base-100 shadow-xl m-5" key={questions.id}>
+                                            <div className="card-body">
+                                                <p className="text-sm text-slate-400">Question 1</p>
+                                                <h2 className="card-title">{questions.question_name}</h2>
+
+                                                <div className="form-control">
+                                                    <label className="label cursor-pointer">
+                                                        <span className="label-text">A. {questions.option_a}</span>
+
+                                                    </label>
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label cursor-pointer">
+                                                        <span className="label-text">B. {questions.option_b}</span>
+
+                                                    </label>
+                                                </div>
+
+                                                <div className="form-control">
+                                                    <label className="label cursor-pointer">
+                                                        <span className="label-text">C. {questions.option_c}</span>
+
+                                                    </label>
+                                                </div>
+
+                                                <div className="form-control">
+                                                    <label className="label cursor-pointer">
+                                                        <span className="label-text">D. {questions.option_d}</span>
+                                                    </label>
+                                                </div>
+
+                                                <label className="block mb-5 w-full">
+                                                    <select
+                                                        id={`question-${questions.id}`}
+                                                        className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg"
+                                                        name={`question-${questions.id}`}
+                                                        onChange={(e) => handleSelectQuestions(questions.id, e.target.value)}
+                                                    >
+                                                        <option>Answer</option>
+                                                        <option value="optionA">Option A</option>
+                                                        <option value="optionB">Option B</option>
+                                                        <option value="optionC">Option C</option>
+                                                        <option value="optionD">Option D</option>
+                                                    </select>
                                                 </label>
+
+                                                <input onChange={handleHiddenInputField} type="hidden" value={questions.answer} />
+
                                             </div>
-                                            <div className="form-control">
-                                                <label className="label cursor-pointer">
-                                                    <span className="label-text">B. {questions.option_b}</span>
-
-                                                </label>
-                                            </div>
-
-                                            <div className="form-control">
-                                                <label className="label cursor-pointer">
-                                                    <span className="label-text">C. {questions.option_c}</span>
-
-                                                </label>
-                                            </div>
-
-                                            <div className="form-control">
-                                                <label className="label cursor-pointer">
-                                                    <span className="label-text">D. {questions.option_d}</span>
-                                                </label>
-                                            </div>
-
-                                            <label className="block mb-5 w-full">
-                                                <select name="choice" id="level" className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg">
-                                                    <option>Answer</option>
-                                                    <option>option_a</option>
-                                                    <option>option_b</option>
-                                                    <option>option_c</option>
-                                                    <option>option_d</option>
-                                                </select>
-                                            </label>
-
-                                            <input name="ans" type="hidden" value={questions.answer} />
-
                                         </div>
-                                    </div>
 
 
-                                ))}
+                                    ))}
 
-                                <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">
-                                    Submit
-                                </button>
+                                    <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">
+                                        Submit
+                                    </button>
 
-                            </form>
+                                </form>
 
-                        </div>
+                            </div>
 
-                        
-                    
-                    </>
 
-                }
 
-                
+                        </>}
 
-            </div>
-        
-        </>
 
-    )
+
+                </div>
+
+            </>
+
+        )
 
 }
