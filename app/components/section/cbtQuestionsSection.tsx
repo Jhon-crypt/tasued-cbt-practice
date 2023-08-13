@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 import LoaderSection from './loaderSection'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
-export default function CbtQuestions(props: { practice_id: any, student_id: any, matric_num: any }){
+export default function CbtQuestions(props: { student_id: any }){
 
     // connecting to supabase
     const supabaseUrl : any = process.env.NEXT_PUBLIC_SUPABASE_URL 
@@ -15,11 +15,15 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
     const [cbt_questions, setCbtQuestions]: any = useState([])
 
-    const [loading2, setLoading2] = useState(false)
+    const [selectedAnswer, setSelectedAnswer] : any = useState({});
 
-    const [selectedAnswer, setSelectedAnswer] = useState({});
+    const [score, setScore] = useState(0);
 
-    const [hiddenAnswer, setHiddenAnswerValue] = useState('');
+    const [failedScore, setFailedScore] = useState(0)
+
+    const [submit_loader, setSubmitLoader] = useState(false)
+
+    const [status, setStatus] = useState("")
 
     useEffect(() => {
 
@@ -67,31 +71,120 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
 
     
-    function handleSelectQuestions(questionId: any, optionId: any) {
-        {
+    function handleSelectQuestions(event : any, questionId : any) {
+        
+        const selected_option = event.target.value;
 
-            setLoading2(true)
-
-            setSelectedAnswer((prevAnswers) => ({
-                ...prevAnswers,
-                [questionId]: optionId,
-            }))
-
-        }
+        setSelectedAnswer((prevAnswer: any) => ({
+            ...prevAnswer,
+            [questionId]: selected_option,
+        }))
 
     }
-
-    function handleHiddenInputField(e: any){
-        setHiddenAnswerValue(e.target.value);
-    };
     
     const submitQuestions = async (event: any) => {
 
+        setSubmitLoader(true)
+
         event.preventDefault()
 
-        console.log(selectedAnswer)
+        try{
 
-        console.log(hiddenAnswer)
+            let userScore = 0
+            let failed_Score = 0
+
+            cbt_questions.forEach((question: any) => {
+                if (selectedAnswer[question.id] === question.answer) {
+                    userScore++
+                }else{
+                    failed_Score++
+                }
+            })
+
+            setScore(userScore)
+            setFailedScore(failed_Score)
+
+            //Auto generated data
+            const auto_generated_data : any = {
+
+            }
+
+            if(userScore >= cbt_questions.length * 0.5){
+
+                const { data, error } = await supabase
+                    .from('results')
+                    .update({
+                        score: `${userScore}`,
+                        status: "Passed",
+                        failed_questions: `${failed_Score}`
+                    })
+                    .eq('student_id', `${props.student_id}`)
+                    .select()
+
+
+                if (error) {
+
+                    setSubmitLoader(false)
+
+                    console.log("Could Not Update")
+
+                    console.log(error)
+
+                } else {
+
+
+                    setSubmitLoader(false)
+
+                    console.log("Updated")
+
+                }
+
+                setStatus("Passed")
+            }else{
+
+                const { data, error } = await supabase
+                    .from('results')
+                    .update({
+                        score: `${userScore}`,
+                        status: "Failed",
+                        failed_questions: `${failed_Score}`
+                    })
+                    .eq('student_id', `${props.student_id}`)
+                    .select()
+
+
+                if (error) {
+
+                    setSubmitLoader(false)
+
+                    console.log("Could Not Update")
+
+                    console.log(error)
+
+                } else {
+
+
+                    setSubmitLoader(false)
+
+                    console.log("Updated")
+
+                }
+
+                setStatus("Failed")
+
+
+            }
+
+            
+
+            
+
+        }catch(error){
+
+            console.log(error)
+
+        }
+        
 
     }
 
@@ -117,7 +210,9 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
 
                             <div className="grid grid-flow-row auto-rows-max">
 
-                                <form>
+                                <p>You passed {score} questions, and you failed {failedScore} questions {status}</p>
+
+                                <form onSubmit={submitQuestions}>
 
                                     {cbt_questions.map((questions: any) => (
 
@@ -157,17 +252,15 @@ export default function CbtQuestions(props: { practice_id: any, student_id: any,
                                                         id={`question-${questions.id}`}
                                                         className="w-full px-6 py-4 placeholder-gray-500 text-base text-gray-500 bg-white outline-none rounded-lg"
                                                         name={`question-${questions.id}`}
-                                                        onChange={(e) => handleSelectQuestions(questions.id, e.target.value)}
+                                                        onChange={(event) => handleSelectQuestions(event, questions.id)}
                                                     >
                                                         <option>Answer</option>
-                                                        <option value="optionA">Option A</option>
-                                                        <option value="optionB">Option B</option>
-                                                        <option value="optionC">Option C</option>
-                                                        <option value="optionD">Option D</option>
+                                                        <option>optionA</option>
+                                                        <option>optionB</option>
+                                                        <option>optionC</option>
+                                                        <option>optionD</option>
                                                     </select>
                                                 </label>
-
-                                                <input onChange={handleHiddenInputField} type="hidden" value={questions.answer} />
 
                                             </div>
                                         </div>
