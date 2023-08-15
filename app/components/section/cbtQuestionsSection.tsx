@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import LoaderSection from './loaderSection'
 import SuccessAlert from '../alerts/successAlert'
+import ErrorAlert from '../alerts/errorAlert'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
 export default function CbtQuestions(props: { student_id: any, practice_id : any }){
@@ -22,7 +23,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
     const [submit_status, setSubmitStatus] = useState(false);
 
-    const [status, setStatus] = useState("")
+    const [error_status, setErrorStatus] = useState(false);
 
     useEffect(() => {
 
@@ -119,6 +120,8 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     setSubmitLoader(false)
 
+                    setErrorStatus(true)
+
                     console.log("Could Not Update")
 
                     console.log(error)
@@ -133,7 +136,6 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                 }
 
-                setStatus("Passed")
             }else{
 
                 const { data, error } = await supabase
@@ -153,6 +155,8 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     setSubmitStatus(false)
 
+                    setErrorStatus(true)
+
                     console.log("Could Not Update")
 
                     console.log(error)
@@ -167,14 +171,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                 }
 
-                setStatus("Failed")
-
-
             }
-
-            
-
-            
 
         }catch(error){
 
@@ -274,11 +271,19 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
                                         <></>
                                     }
 
+                                    {error_status?
+                                        <>
+                                            <ErrorAlert content="an error occurred, try again" />
+                                        </>
+                                        :
+                                        <></>
+                                    }
+
 
                                     {submit_loader?
                                         <>
                                         
-                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200opacity-50 cursor-not-allowed" disabled type="submit">
+                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200 opacity-50 cursor-not-allowed" disabled type="submit">
                                                 Submitting questions...
                                             </button>
                                         
@@ -286,7 +291,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
                                         :
                                         <>
                                         
-                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200opacity-50 cursor-not-allowed" disabled type="submit">
+                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">
                                                 Submit
                                             </button>
                                         
