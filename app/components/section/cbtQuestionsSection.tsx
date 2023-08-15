@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import LoaderSection from './loaderSection'
+import SuccessAlert from '../alerts/successAlert'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
 export default function CbtQuestions(props: { student_id: any, practice_id : any }){
@@ -17,11 +18,9 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
     const [selectedAnswer, setSelectedAnswer] : any = useState({});
 
-    const [score, setScore] = useState(0);
-
-    const [failedScore, setFailedScore] = useState(0)
-
     const [submit_loader, setSubmitLoader] = useState(false)
+
+    const [submit_status, setSubmitStatus] = useState(false);
 
     const [status, setStatus] = useState("")
 
@@ -101,14 +100,6 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
                 }
             })
 
-            setScore(userScore)
-            setFailedScore(failed_Score)
-
-            //Auto generated data
-            const auto_generated_data : any = {
-
-            }
-
             if(userScore >= cbt_questions.length * 0.5){
 
                 const { data, error } = await supabase
@@ -124,6 +115,8 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                 if (error) {
 
+                    setSubmitStatus(false)
+
                     setSubmitLoader(false)
 
                     console.log("Could Not Update")
@@ -132,6 +125,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                 } else {
 
+                    setSubmitStatus(true)
 
                     setSubmitLoader(false)
 
@@ -157,12 +151,15 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     setSubmitLoader(false)
 
+                    setSubmitStatus(false)
+
                     console.log("Could Not Update")
 
                     console.log(error)
 
                 } else {
 
+                    setSubmitStatus(true)
 
                     setSubmitLoader(false)
 
@@ -210,8 +207,9 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                             <div className="grid grid-flow-row auto-rows-max">
 
+                                {/*
                                 <p>You passed {score} questions, and you failed {failedScore} questions {status}</p>
-
+                                */}
                                 <form onSubmit={submitQuestions}>
 
                                     {cbt_questions.map((questions: any) => (
@@ -268,10 +266,34 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                                     ))}
 
-                                    <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">
-                                        Submit
-                                    </button>
+                                    {submit_status?
+                                        <>
+                                            <SuccessAlert text_size="text-lg" content="Submitted, wait..." />
+                                        </>
+                                        :
+                                        <></>
+                                    }
 
+
+                                    {submit_loader?
+                                        <>
+                                        
+                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200opacity-50 cursor-not-allowed" disabled type="submit">
+                                                Submitting questions...
+                                            </button>
+                                        
+                                        </>
+                                        :
+                                        <>
+                                        
+                                            <button className="mb-8 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200opacity-50 cursor-not-allowed" disabled type="submit">
+                                                Submit
+                                            </button>
+                                        
+                                        </>
+                                    }
+
+                                    
                                 </form>
 
                             </div>

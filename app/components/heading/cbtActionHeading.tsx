@@ -18,7 +18,7 @@ export default function CbtActionHeading(){
                         </span>
                     </a>
                     <div className="flex md:order-2">
-                        <label htmlFor="my_modal_6" className="text-white bg-error focus:ring-4 focus:outline-none  font-bold rounded-lg text-lg px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <label htmlFor="cancelCbtModal" className="text-white bg-error focus:ring-4 focus:outline-none  font-bold rounded-lg text-lg px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Cancel
                         </label>
                     </div>
