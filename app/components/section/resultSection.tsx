@@ -1,8 +1,72 @@
+"use client"
 import Link from "next/link"
 import { BiMessageAltCheck } from "react-icons/bi"
 import { HiOutlineExclamationTriangle } from "react-icons/hi2"
+import { useEffect, useState } from 'react'
+import { createClient } from '@supabase/supabase-js'
+import LoaderSection from "./loaderSection"
 
-export default function ResultSection(){
+export default function ResultSection(props: { studentId: any}){
+
+    const [loading, setLoading] = useState(false)
+
+    const [score, setStudentScore] = useState("")
+
+    const [status, setStatus] = useState("")
+
+    const [failedScore, setFailedScore] = useState("")
+
+    // connecting to supabase
+    const supabaseUrl : any = process.env.NEXT_PUBLIC_SUPABASE_URL 
+    const supabaseAnonKey : any = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+
+    useEffect(() => {
+
+        async function getResults(){
+
+            try {
+
+                setLoading(true)
+
+                let { data: student_result, error }: any = await supabase
+                    .from("results")
+                    .select("*")
+                    .eq("student_id", `${props.studentId}`)
+                    .single()
+
+                if(student_result){
+
+                    setLoading(false)
+
+                    console.log(student_result)
+
+                    setStudentScore(student_result.score)
+
+                    setStatus(student_result.status)
+
+                    setFailedScore(student_result.failed_questions)
+
+                }else if(error){
+
+                    setLoading(false)
+
+                    console.log("Failed to load student result")
+
+                }
+
+            }catch(error){
+
+                console.log(error)
+
+            }
+
+        }
+
+        getResults()
+
+    }, [])
 
     return (
 
@@ -10,35 +74,49 @@ export default function ResultSection(){
         
             <div className="flex justify-center">
 
-                <div className="stats shadow">
+                {loading?
 
-                    <div className="stat">
-                        <div className="stat-figure text-primary">
-                            <BiMessageAltCheck style={{ fontSize: "30px" }}/>
-                        </div>
-                        <div className="stat-title">20190110259</div>
-                        <div className="stat-value text-primary">15/20</div>
-                        <div className="stat-desc">You're on average</div>
-                    </div>
+                    <>
+                        <LoaderSection />
+                    </>
+                    :
+                    <>
+                    
+                        <div className="stats shadow">
 
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <HiOutlineExclamationTriangle style={{ fontSize: "30px" }}/>
-                        </div>
-                        <div className="stat-title">Questions failed</div>
-                        <div className="stat-value text-secondary">5 Questions</div>
-                        <div className="stat-desc">Try better next time</div>
-                    </div>
-
-                    <div className="stat">
-                        <Link href="/practice/inputMatric">
-                            <div className="stat bg-primary text-white rounded">
-                                <div className="stat-value">Practice<br />Again</div>
+                            <div className="stat">
+                                <div className="stat-figure text-primary">
+                                    <BiMessageAltCheck style={{ fontSize: "30px" }} />
+                                </div>
+                                <div className="stat-title">Score</div>
+                                <div className="stat-value text-primary">{score}</div>
+                                <div className="stat-desc">{status}</div>
                             </div>
-                        </Link>
-                    </div>
 
-                </div>
+                            <div className="stat">
+                                <div className="stat-figure text-secondary">
+                                    <HiOutlineExclamationTriangle style={{ fontSize: "30px" }} />
+                                </div>
+                                <div className="stat-title">Questions failed</div>
+                                <div className="stat-value text-secondary">{failedScore} Questions</div>
+                                <div className="stat-desc"></div>
+                            </div>
+
+                            <div className="stat">
+                                <Link href="/practice/inputMatric">
+                                    <div className="stat bg-primary text-white rounded">
+                                        <div className="stat-value">Practice<br />Again</div>
+                                    </div>
+                                </Link>
+                            </div>
+
+                        </div>
+                    
+                    </>
+
+                }
+
+                
 
             </div>
         

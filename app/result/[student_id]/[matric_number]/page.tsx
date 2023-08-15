@@ -1,10 +1,11 @@
 import Header from "@/app/components/heading/heading"
 import Footer from "@/app/components/footer/footer"
 import Image from "next/image"
-import ResultHeading from "../components/heading/resultHeading"
-import ResultSection from "../components/section/resultSection"
+import ResultHeading from "@/app/components/heading/resultHeading"
+import ResultSection from "@/app/components/section/resultSection"
 
-export default function Result(){
+
+export default async function Result({ params }: { params: { student_id: any, matric_number : any} }){
 
     return (
 
@@ -19,9 +20,10 @@ export default function Result(){
 
                 <div className="relative z-10 container px-4 mx-auto">
 
-                    <ResultHeading />
+                    <ResultHeading headingContent={params.matric_number}/>
 
-                    <ResultSection />
+                    <ResultSection studentId={params.student_id}/>
+                    
                     
                 </div>
 
