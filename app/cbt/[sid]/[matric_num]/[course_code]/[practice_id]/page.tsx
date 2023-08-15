@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image"
-import CbtActionHeading from "../../components/heading/cbtActionHeading";
-import CbtHeading from "../../components/heading/cbtHeading"
-import CbtQuestions from "../../components/section/cbtQuestionsSection"
+import CbtActionHeading from "../../../../../components/heading/cbtActionHeading";
+import CbtHeading from "../../../../../components/heading/cbtHeading"
+import CbtQuestions from "../../../../../components/section/cbtQuestionsSection"
 
 
-export default function Cbt({ params }: { params: { sid: any} }){
+export default function Cbt({ params }: { params: { sid: any, matric_num : any, course_code : any, practice_id : any} }){
       //{formatElapsedTime(state.elapsedTime)}
 
     return (
@@ -22,9 +22,9 @@ export default function Cbt({ params }: { params: { sid: any} }){
 
                     <div className="relative z-10 container px-2 mx-auto">
 
-                        <CbtHeading />
+                        <CbtHeading matric={params.matric_num} course_code={params.course_code}/>
 
-                        <CbtQuestions student_id={params.sid}/>
+                        <CbtQuestions student_id={params.sid} practice_id={params.practice_id}/>
 
                     </div>
 

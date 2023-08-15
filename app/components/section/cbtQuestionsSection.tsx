@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 import LoaderSection from './loaderSection'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
-export default function CbtQuestions(props: { student_id: any }){
+export default function CbtQuestions(props: { student_id: any, practice_id : any }){
 
     // connecting to supabase
     const supabaseUrl : any = process.env.NEXT_PUBLIC_SUPABASE_URL 
