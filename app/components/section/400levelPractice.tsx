@@ -96,7 +96,7 @@ export default function FourthLevelPracticeSection(){
                                 <div className="stat-desc">{fourth_level.date_created}</div>
                             </div>
 
-                            <Link href="/practice/inputMatric">
+                            <Link href={`/practice/inputMatric/${fourth_level.practice_id}/${fourth_level.course_code}`}>
                                 <div className="stat bg-primary text-white">
                                     <div className="stat-value">Practice<br />Now</div>
                                 </div>

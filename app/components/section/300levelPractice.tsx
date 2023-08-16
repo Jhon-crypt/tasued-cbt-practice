@@ -97,7 +97,7 @@ export default function ThirdLevelPracticeSection(){
                                                 <div className="stat-desc">{third_level.date_created}</div>
                                             </div>
 
-                                            <Link href="/practice/inputMatric">
+                                            <Link href={`/practice/inputMatric/${third_level.practice_id}/${third_level.course_code}`}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
                                                 </div>
