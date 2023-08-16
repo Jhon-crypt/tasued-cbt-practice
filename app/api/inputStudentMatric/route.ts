@@ -35,13 +35,13 @@ export async function POST(request: Request){
 
         let status = false
 
-        return NextResponse.json({ message: status });
+        return NextResponse.json({ message: status  });
 
     } else {
 
         let status = true
 
-        return NextResponse.json({ message: status });
+        return NextResponse.json({ message: status, studentId : student_id });
 
     } 
 

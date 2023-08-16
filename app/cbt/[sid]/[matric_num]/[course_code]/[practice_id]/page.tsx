@@ -24,7 +24,7 @@ export default function Cbt({ params }: { params: { sid: any, matric_num : any, 
 
                         <CbtHeading matric={params.matric_num} course_code={params.course_code}/>
 
-                        <CbtQuestions student_id={params.sid} practice_id={params.practice_id}/>
+                        <CbtQuestions student_id={params.sid} practice_id={params.practice_id} matric_number={params.matric_num}/>
 
                     </div>
 

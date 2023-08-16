@@ -6,7 +6,7 @@ import SuccessAlert from '../alerts/successAlert'
 import ErrorAlert from '../alerts/errorAlert'
 
 //9157ada7-fb98-4356-ae11-12df3e6ba6ab/0131ac71-967d-408c-b9d3-f75a9c1faf74/20190110249
-export default function CbtQuestions(props: { student_id: any, practice_id : any }){
+export default function CbtQuestions(props: { student_id: any, practice_id : any, matric_number : any }){
 
     // connecting to supabase
     const supabaseUrl : any = process.env.NEXT_PUBLIC_SUPABASE_URL 
@@ -134,6 +134,8 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     console.log("Updated")
 
+                    window.location.href= `http://localhost:3000/result/${props.student_id}/${props.matric_number}`
+                    
                 }
 
             }else{
@@ -168,6 +170,8 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
                     setSubmitLoader(false)
 
                     console.log("Updated")
+
+                    window.location.href= `http://localhost:3000/result/${props.student_id}/${props.matric_number}`
 
                 }
 
