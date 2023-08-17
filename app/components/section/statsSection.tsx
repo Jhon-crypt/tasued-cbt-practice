@@ -1,9 +1,59 @@
+"use client"
 import Link from "next/link"
 import StudentsTables from "../tables/studentsTable"
 import PassedStudentsStatsSection from "./passedStudentsStatsSection"
 import FailedStudentsStatsSection from "./failedStudentsStatsSection"
+import { createClient } from '@supabase/supabase-js'
+import { useState, useEffect } from 'react'
 
 export default function StatsSection(props: { heading: any, id: any}){
+
+    // connecting to supabase
+    const supabaseUrl : any = process.env.NEXT_PUBLIC_SUPABASE_URL 
+    const supabaseAnonKey : any = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+    const [studentsCountLoading, setStudentCountLoading] = useState(false)
+
+    const [studentCount, setCount] = useState(0)
+
+    useEffect(() => {
+        async function fetchStudentsCount() {
+
+            try{
+
+                setStudentCountLoading(true)
+
+                const { count, error }: any = await supabase
+                    .from('results')
+                    .select('*', { count: 'exact' })
+                    .eq('practice_id', `${props.id}`)
+
+                if (error) {
+
+                    setStudentCountLoading(false)
+
+                    console.log(error)
+
+                } else {
+
+                    setStudentCountLoading(false)
+
+                    setCount(count)
+                    console.log(studentCount)
+
+                }
+
+            }catch(error){
+
+                console.log(error)
+
+            }
+
+        }
+    
+        fetchStudentsCount()
+      }, [])
 
     return (
 
@@ -28,7 +78,6 @@ export default function StatsSection(props: { heading: any, id: any}){
 
                                         <FailedStudentsStatsSection />
                                         {/*  End of stats1 */}
-
 
                                     </div>
                                 </div>
@@ -66,7 +115,30 @@ export default function StatsSection(props: { heading: any, id: any}){
                     <div className="container px-4 mx-auto">
                         <div className="pt-4 bg-white shadow rounded">
                             <div className="flex px-6 pb-4 border-b">
-                                <h3 className="text-xl font-bold">Students Results</h3>
+                                <h3 className="text-xl font-bold">
+                                
+                                    <button className="btn">
+                                        Students Results
+                                        <div className="badge">
+                                            {studentsCountLoading?
+
+                                                <>
+                                                
+                                                    <span className="loading loading-dots loading-md"></span>
+                                                
+                                                </>
+                                                :
+                                                <>
+                                                
+                                                    {studentCount}
+                                                
+                                                </>
+
+                                            }
+                                             
+                                        </div>
+                                    </button>
+                                </h3>
                             </div>
 
                             <section className="py-8">

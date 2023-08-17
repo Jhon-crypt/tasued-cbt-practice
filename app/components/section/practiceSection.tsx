@@ -53,6 +53,8 @@ export default async function PracticeSection(props: { admin_id: any}){
                                                 <p className="text-gray-500">created by @{practice.admin_name}</p>
                                             </div>
                                         </div>
+
+                                        {/*}
                                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
                                             <div className="stat">
@@ -62,6 +64,8 @@ export default async function PracticeSection(props: { admin_id: any}){
                                             </div>
 
                                         </div>
+                                        {*/}
+                                        
                                     </div>
                                 </div>
 

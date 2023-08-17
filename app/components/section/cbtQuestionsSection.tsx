@@ -36,7 +36,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
                 let { data: questions, error }: any = await supabase
                     .from("questions")
                     .select("*")
-                    .eq("practice_id", "6f9c5a0f-ca00-4fd5-ac08-db94f1976935")
+                    .eq("practice_id", `${props.practice_id}`)
 
 
                 if (questions) {
