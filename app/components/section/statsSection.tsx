@@ -148,7 +148,7 @@ export default function StatsSection(props: { heading: any, id: any}){
                                             <h3 className="text-xl font-bold"></h3>
                                         </div>
 
-                                        <StudentsTables />
+                                        <StudentsTables id={props.id}/>
                                     
                                     </div>
                                 </div>

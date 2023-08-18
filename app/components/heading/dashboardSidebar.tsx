@@ -51,24 +51,10 @@ export default function DashboardSidebar(props: { fname: any, lname : any }){
                                 <span className="-mr-1 font-medium">Create</span>
                             </Link>
                         </li>
-
-                        <li>
-                            <Link href="/notification" aria-label="dashboard" className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-gray-600 hover:text-white hover:bg-blue-700">
-                                <AiOutlineBell style={{ fontSize: "20px" }}/>
-                                <span className="-mr-1 font-medium">Notifications</span>
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link href="settings" aria-label="dashboard" className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-gray-600 hover:text-white hover:bg-blue-700">
-                                <BiCog style={{ fontSize: "20px" }}/>
-                                <span className="-mr-1 font-medium">Settings</span>
-                            </Link>
-                        </li>
                        
                     </ul>
                 </div>
-
+ 
                 <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t ">
                     <label htmlFor="logoutModal" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group hover:text-white hover:bg-blue-700">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
