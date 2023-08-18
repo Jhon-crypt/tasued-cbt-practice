@@ -1,5 +1,5 @@
 import { BsFillMortarboardFill } from "react-icons/bs";
-import { BiSolidUserCircle, BiHomeAlt, BiCog } from "react-icons/bi"
+import {  BiHomeAlt, } from "react-icons/bi"
 import { AiOutlinePlusCircle, AiOutlineBell } from "react-icons/ai"
 import Link from "next/link";
 import LogoutModal from "../modal/LogoutModal";

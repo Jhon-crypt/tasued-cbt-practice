@@ -77,7 +77,7 @@ export default  function StudentsTables(props: { id: any}){
                                         <td className="py-5 px-6 font-medium">{result.matric_number}</td>
                                         <td className="font-medium">{result.score}</td>
                                         <td>
-                                            <span className="inline-block py-1 px-2 text-white bg-red-500 rounded-full">{result.status}</span>
+                                            <span className="inline-block py-1 px-2 text-dark bg-grey rounded-full">{result.status}</span>
                                         </td>
                                     </tr>
                                 ))}

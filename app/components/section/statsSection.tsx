@@ -40,7 +40,7 @@ export default function StatsSection(props: { heading: any, id: any}){
                     setStudentCountLoading(false)
 
                     setCount(count)
-                    console.log(studentCount)
+                    //console.log(studentCount)
 
                 }
 
@@ -73,11 +73,27 @@ export default function StatsSection(props: { heading: any, id: any}){
                                 <div className="p-6 bg-white shadow rounded">
                                     <div className="flex justify-between mb-4">
 
-                                        <PassedStudentsStatsSection />
-                                        {/*  End of stats1 */}
+                                        {studentsCountLoading ?
 
-                                        <FailedStudentsStatsSection />
-                                        {/*  End of stats1 */}
+                                            <>
+                                            
+                                                <span className="loading loading-dots loading-md"></span>
+                                            
+                                            </>
+
+                                            :
+
+                                            <>
+
+                                                <PassedStudentsStatsSection id={props.id} totalNoOfStudents={studentCount} />
+                                                {/*  End of stats1 */}
+
+                                                <FailedStudentsStatsSection id={props.id} totalNoOfStudents={studentCount}/>
+                                                {/*  End of stats1 */}
+
+                                            </>
+
+                                        }
 
                                     </div>
                                 </div>
