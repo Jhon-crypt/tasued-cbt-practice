@@ -14,7 +14,7 @@ export default function Header(){
                         <div className="flex flex-wrap items-center">
                             <div className="w-auto mr-14">
                                 <Link href="/">
-                                    <div className="flex items-center" style={{ fontSize : "20px" }}>
+                                    <div className="flex items-center" style={{ fontSize : "15px" }}>
                                         <span className="mr-2"><BsFillMortarboardFill  style={{ fontSize : "25px", color : "#4f46e5" }}/></span>
                                         <span><b>Tasued-Cbt-Practice</b></span>
                                     </div>
@@ -38,12 +38,10 @@ export default function Header(){
                                 </div>
                             </div>
                             <div className="w-auto lg:hidden">
-                                <a href="#">
-                                    <svg className="navbar-burger text-indigo-600" width="51" height="51" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="56" height="56" rx="28" fill="currentColor"></rect>
-                                        <path d="M37 32H19M37 24H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                </a>
+                                <Link href='/practice'><button className="py-2 px-3 text-sm text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">
+                                    Practice Test Or Exams
+                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -56,14 +54,12 @@ export default function Header(){
                                 <div className="flex items-center justify-between -m-2">
                                     <div className="w-auto p-2">
                                         <a className="inline-block" href="#">
-                                            <Image src="https://shuffle.dev/flaro-assets/logos/flaro-logo-black.svg" width={600} height={700} alt="Heding image"/>
+                                        <Link href='/practice'><button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button></Link>
                                         </a>
                                     </div>
                                     <div className="w-auto p-2">
                                         <a className="navbar-burger" href="#">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
+                                        <Link href='/practice'><button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button></Link>
                                         </a>
                                     </div>
                                 </div>
@@ -80,7 +76,7 @@ export default function Header(){
                                 <div className="flex flex-wrap">
                                     <div className="w-full">
                                         <div className="block">
-                                            <button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Try 14 Days Free Trial</button>
+                                        <Link href='/practice'><button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test Or Exams</button></Link>
                                         </div>
                                     </div>
                                 </div>
