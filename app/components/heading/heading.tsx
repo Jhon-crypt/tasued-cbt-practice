@@ -24,14 +24,7 @@ export default function Header(){
                     </div>
                     <div className="w-auto">
                         <div className="flex flex-wrap items-center">
-                            <div className="w-auto hidden lg:block">
-                                <ul className="flex items-center mr-16">
-                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Features</a></li>
-                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">About</a></li>
-                                    <li className="mr-9 font-medium hover:text-gray-700"><a href="#">Team</a></li>
-                                    <li className="font-medium hover:text-gray-700"><a href="#">Contact Us</a></li>
-                                </ul>
-                            </div>
+                             
                             <div className="w-auto hidden lg:block">
                                 <div className="inline-block">
                                     <Link href='/practice'><button className="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Practice Test/Exams</button></Link>
