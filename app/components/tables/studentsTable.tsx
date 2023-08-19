@@ -16,7 +16,7 @@ export default  function StudentsTables(props: { id: any}){
 
                 setLoading(true)
 
-                const res = await fetch(`http://localhost:3000/api/fetchResults?practiceId=${props.id}`)
+                const res = await fetch(`https://tasued-cbt-practice.vercel.app/api/fetchResults?practiceId=${props.id}`)
 
 
                 const results_data = await res.json()

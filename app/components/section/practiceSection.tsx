@@ -3,7 +3,7 @@ import Link from "next/link";
 
 async function getPractices(id : any){
 
-    const res = await fetch(`http://localhost:3000/api/fetchPractice?adminId=${id}`)
+    const res = await fetch(`https://tasued-cbt-practice.vercel.app/api/fetchPractice?adminId=${id}`)
 
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
