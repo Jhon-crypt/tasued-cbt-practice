@@ -105,7 +105,7 @@ export default function StatsSection(props: { heading: any, id: any}){
 
                                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
-                                            <Link href="/practice/inputMatric">
+                                            <Link href={`/practice/inputMatric/${props.id}/${props.heading}`}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
                                                 </div>
