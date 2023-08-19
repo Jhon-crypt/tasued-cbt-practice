@@ -90,12 +90,6 @@ export default function SecondLevelPracticeSection(){
                                         </div>
                                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
-                                            <div className="stat">
-                                                <div className="stat-title">Students</div>
-                                                <div className="stat-value">{second_level.students_count}</div>
-                                                <div className="stat-desc">{second_level.date_created}</div>
-                                            </div>
-
                                             <Link href={`/practice/inputMatric/${second_level.practice_id}/${second_level.course_code}`}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
