@@ -5,7 +5,6 @@ export const config = {
         "/dashboard",
         "/create",
         "/createQuestions/[id]/[code]",
-        "/notification",
         "/stats/[id]/[code]",
         "/api/createPractice/createTestPractice"
 
