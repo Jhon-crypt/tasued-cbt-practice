@@ -6,8 +6,10 @@ export const config = {
         "/create",
         "/createQuestions/[id]/[code]",
         "/stats/[id]/[code]",
-        "/api/createPractice/createTestPractice"
-
+        "/api/createPractice/createTestPractice",
+        "/api/createPractice/createExamPractice",
+        "/api/createQuestions",
+        
     ]
 };
 
