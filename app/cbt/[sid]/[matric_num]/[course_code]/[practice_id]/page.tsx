@@ -12,7 +12,7 @@ export default function Cbt({ params }: { params: { sid: any, matric_num : any, 
 
         <>
         
-            <CbtActionHeading />
+            <CbtActionHeading id={params.practice_id}/>
 
                 <br /><br /><br /><br />
                 <section className="relative pb-32 bg-white overflow-hidden">
