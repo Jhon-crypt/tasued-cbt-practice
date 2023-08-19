@@ -47,7 +47,7 @@ export default function InputMatricNumberForm(props: { practice_id: any, courseC
 
                 console.log("Inserted")
 
-                window.location.href= `http://localhost:3000/cbt/${student_id}/${input_matric_form_data.matric}/${props.courseCode}/${props.practice_id}`
+                window.location.href= `https://tasued-cbt-practice.vercel.app/cbt/${student_id}/${input_matric_form_data.matric}/${props.courseCode}/${props.practice_id}`
 
             }else{
 
