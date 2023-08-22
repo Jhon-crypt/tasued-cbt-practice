@@ -13,7 +13,7 @@ export default function HeadingHero(){
                     <div className="relative z-10 container px-4 mx-auto">
                         <div className="flex flex-wrap lg:items-center -m-8">
                             <div className="w-full md:w-1/2 p-8">
-                                <Image style={{ borderRadius : "93% 7% 73% 27% / 30% 92% 8% 70% " }} className="relative transform hover:scale-105 transition ease-in-out duration-1000" src="/hero1.png" width={831} height={703} alt="Hero image"/>
+                                <Image style={{ borderRadius : "93% 7% 73% 27% / 30% 92% 8% 70% " }} className="relative transform hover:scale-105 transition ease-in-out duration-1000" src="https://res.cloudinary.com/db7wwc9ex/image/upload/v1692746878/tasued-cbt/hero1_d6govv.png" width={831} height={703} alt="Hero image"/>
                             </div>
                             <div className="w-full md:w-1/2 p-8">
                                 <div className="md:max-w-2xl">

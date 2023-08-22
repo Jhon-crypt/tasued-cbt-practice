@@ -75,7 +75,7 @@ export default function HowItwWokrsHero(){
             <section className="pt-24 pb-36 bg-white overflow-hidden">
                 <div className="container px-4 mx-auto">
                     <h2 className="mb-7 text-6xl md:text-8xl xl:text-10xl text-center font-bold font-heading tracking-px-n leading-none">Maximize And Unleash Your Performance</h2>
-                    <div className="relative bg-no-repeat bg-center bg-cover bg-fixed overflow-hidden rounded-4xl" style={{"height": "648px", "backgroundImage": "url('/how.jpg')"}}>
+                    <div className="relative bg-no-repeat bg-center bg-cover bg-fixed overflow-hidden rounded-4xl" style={{"height": "648px", "backgroundImage": "url('https://res.cloudinary.com/db7wwc9ex/image/upload/v1692745466/tasued-cbt/how_ahrhvn.jpg')"}}>
                         <div className="absolute top-0 left-0 p-14 md:p-20 md:pb-0 overflow-y-auto h-full">
                             <div className="flex flex-wrap">
                                 <div className="w-full">
