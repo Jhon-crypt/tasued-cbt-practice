@@ -4,7 +4,7 @@ const nextConfig = {
       appDir: true,
     },
     images: {
-      domains: ["shuffle.dev"],
+      domains: ["shuffle.dev", "res.cloudinary.com"],
     },
   }
   
