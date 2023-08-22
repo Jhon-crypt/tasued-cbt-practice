@@ -112,7 +112,7 @@ export default function StatsSection(props: { heading: any, id: any}){
 
                         setButtonLoading(false)
 
-                        window.location.href = "http://localhost:3000/dashboard"
+                        window.location.href = "https://tasued-cbt-practice.vercel.app/dashboard"
 
                     }
 
