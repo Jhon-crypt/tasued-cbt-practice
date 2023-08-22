@@ -15,6 +15,8 @@ export default function StatsSection(props: { heading: any, id: any}){
 
     const [studentsCountLoading, setStudentCountLoading] = useState(false)
 
+    const [deleteLoading, setButtonLoading] = useState(false)
+
     const [studentCount, setCount] = useState(0)
 
     useEffect(() => {
@@ -54,6 +56,77 @@ export default function StatsSection(props: { heading: any, id: any}){
     
         fetchStudentsCount()
       }, [])
+
+      const deletePractice = async (practiceId: any) => {
+
+        try{
+
+            setButtonLoading(true)
+
+            const { error } = await supabase
+                .from('practice')
+                .delete()
+                .eq('practice_id', practiceId)
+
+            if(error){
+
+                setButtonLoading(false)
+
+                console.log(error)
+
+            }else{
+
+                //setButtonLoading(false)
+
+                console.log("Practice deleted")
+
+                //deleting questions
+                const { error } = await supabase
+                    .from('questions')
+                    .delete()
+                    .eq('practice_id', practiceId)
+
+                if(error){
+
+                    console.log(error)
+
+                    setButtonLoading(false)
+
+                }else{
+
+                    console.log("Questions deleted")
+
+                    //deleting results
+                    const { error } = await supabase
+                        .from('results')
+                        .delete()
+                        .eq('practice_id', practiceId)
+
+                    if(error){
+
+                        setButtonLoading(false)
+
+                        console.log(error)
+
+                    }else{
+
+                        setButtonLoading(false)
+
+                        window.location.href = "http://localhost:3000/dashboard"
+
+                    }
+
+                }
+
+            }
+
+        }catch(error){
+
+
+
+        }
+
+      }
 
     return (
 
@@ -133,7 +206,7 @@ export default function StatsSection(props: { heading: any, id: any}){
                             <div className="flex px-6 pb-4 border-b">
                                 <h3 className="text-xl font-bold">
                                 
-                                    <button className="btn">
+                                    <button className="btn mr-3 mb-3">
                                         Students Results
                                         <div className="badge">
                                             {studentsCountLoading?
@@ -154,6 +227,30 @@ export default function StatsSection(props: { heading: any, id: any}){
                                              
                                         </div>
                                     </button>
+
+                                    {deleteLoading?
+
+                                        <>
+
+                                            <button className="btn btn-outline btn-error opacity-50 cursor-not-allowed" disabled>
+                                                Deleting and reloading...
+                                            </button>
+                                        
+                                        </>
+
+                                        :
+
+                                        <>
+                                        
+                                            <button onClick={() => deletePractice(props.id)} className="btn btn-outline btn-error">
+                                                Delete practice
+                                            </button>
+                                        
+                                        </>
+
+                                    }
+                                    
+
                                 </h3>
                             </div>
 
