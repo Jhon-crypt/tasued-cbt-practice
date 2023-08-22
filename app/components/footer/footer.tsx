@@ -19,14 +19,7 @@ export default function Footer(){
                                 </div>
                                 </a>
                             </div>
-                            <div className="w-auto p-8">
-                                <ul className="flex flex-wrap items-center -m-5">
-                                    <li className="p-5"><a className="text-gray-600 hover:text-gray-700 font-medium" href="#">Features</a></li>
-                                    <li className="p-5"><a className="text-gray-600 hover:text-gray-700 font-medium" href="#">About</a></li>
-                                    <li className="p-5"><a className="text-gray-600 hover:text-gray-700 font-medium" href="#">Team</a></li>
-                                    <li className="p-5"><a className="text-gray-600 hover:text-gray-700 font-medium" href="#">Contact Us</a></li>
-                                </ul>
-                            </div>
+                            
                             <div className="w-auto p-8">
                                 <div className="flex flex-wrap -m-1.5">
                                     <div className="w-auto p-1.5">
