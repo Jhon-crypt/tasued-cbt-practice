@@ -74,7 +74,7 @@ export default function InputMatricNumberForm(props: { practice_id: any, courseC
             <section className="py-16 xl:pb-56 bg-white overflow-hidden">
                 <div className="container px-4 mx-auto">
                     <div className="text-center max-w-md mx-auto">
-                        <h4 className="mb-4 text-6xl md:text-7xl text-center font-bold font-heading tracking-px-n leading-tight">Practice Edu111</h4>
+                        <h4 className="mb-4 text-6xl md:text-7xl text-center font-bold font-heading tracking-px-n leading-tight">Practice {props.courseCode}</h4>
                         <p className="mb-12 font-medium text-lg text-gray-600 leading-normal">Input Your Matric Number To Continue.</p>
                         <form onSubmit={handleInputMatricNumber}>
 
