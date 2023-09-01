@@ -217,7 +217,6 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                                         <div className="card w-96 bg-base-100 shadow-xl m-5" key={questions.id}>
                                             <div className="card-body">
-                                                <p className="text-sm text-slate-400">Question 1</p>
                                                 <h2 className="card-title">{questions.question_name}</h2>
 
                                                 <div className="form-control">

@@ -99,9 +99,7 @@ export default function ThirdLevelPracticeSection(){
 
                                         </div>
                                     </div>
-                                    <div className="block">
-                                        <p className="text-sm text-gray-500 font-medium">3 days ago</p>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
