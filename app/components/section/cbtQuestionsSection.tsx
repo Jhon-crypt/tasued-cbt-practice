@@ -134,7 +134,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     console.log("Updated")
 
-                    window.location.href= `https://tasued-cbt-practice.vercel.app/result/${props.student_id}/${props.matric_number}`
+                    window.location.href= `http://localhost:3000/result/${props.student_id}/${props.matric_number}`
                     
                 }
 
@@ -171,7 +171,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     console.log("Updated")
 
-                    window.location.href= `https://tasued-cbt-practice.vercel.app/result/${props.student_id}/${props.matric_number}`
+                    window.location.href= `http://localhost:3000/result/${props.student_id}/${props.matric_number}`
 
                 }
 
@@ -217,6 +217,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                                         <div className="card w-96 bg-base-100 shadow-xl m-5" key={questions.id}>
                                             <div className="card-body">
+
                                                 <h2 className="card-title">{questions.question_name}</h2>
 
                                                 <div className="form-control">
