@@ -27,6 +27,8 @@ export default function HeadingHero(){
                                             </button>
                                         </Link>
                                         </div>
+
+                                    {/*}
                                     <div className="w-auto p-2.5">
                                         <details className="dropdown mb-32">
                                             <summary  className="py-4 px-9 w-full font-semibold border border-gray-300 hover:border-gray-400 rounded-xl focus:ring focus:ring-gray-50 bg-transparent hover:bg-gray-100 transition ease-in-out duration-200">
@@ -40,6 +42,7 @@ export default function HeadingHero(){
                                             </ul>
                                         </details>
                                     </div>
+                                    {*/}
                                     </div>
                                     <ul className="pb-10">
                                         <li className="mb-3 inline-flex items-center w-full font-medium leading-relaxed">
