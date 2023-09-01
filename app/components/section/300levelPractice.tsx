@@ -91,7 +91,7 @@ export default function ThirdLevelPracticeSection(){
                                         </div>
                                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
-                                            <Link href={`/practice/inputMatric/${third_level.practice_id}/${third_level.course_code}`}>
+                                            <Link href={encodeURI(`/practice/inputMatric/${third_level.practice_id}/${third_level.course_code}`)}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
                                                 </div>

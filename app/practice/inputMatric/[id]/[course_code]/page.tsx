@@ -10,7 +10,7 @@ export default function InputMatric({ params }: { params: { id: any, course_code
         
             <Header />
 
-                <InputMatricNumberForm practice_id={params.id} courseCode={params.course_code}/>
+                <InputMatricNumberForm practice_id={params.id} courseCode={decodeURI(params.course_code)}/>
 
             <Footer />
         

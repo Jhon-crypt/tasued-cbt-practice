@@ -90,7 +90,7 @@ export default function FirstLevelPracticeSection(){
                                         </div>
                                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
-                                            <Link href={`/practice/inputMatric/${first_level.practice_id}/${first_level.course_code}`}>
+                                            <Link href={encodeURI(`/practice/inputMatric/${first_level.practice_id}/${first_level.course_code}`)}>
                                                 <div className="stat bg-primary text-white">
                                                     <div className="stat-value">Practice<br />Now</div>
                                                 </div>
