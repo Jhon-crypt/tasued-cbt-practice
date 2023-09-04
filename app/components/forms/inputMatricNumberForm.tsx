@@ -80,7 +80,7 @@ export default function InputMatricNumberForm(props: { practice_id: any, courseC
 
                             {successAlertStatus ?
                                 <>
-                                    <SuccessAlert text_size="text-sm" content="Matric number submitted, redirecting..." />
+                                    <SuccessAlert text_size="text-sm" content="Email submitted, redirecting..." />
                                 </>
                                 :
                                 <></>
