@@ -97,7 +97,7 @@ export default function InputMatricNumberForm(props: { practice_id: any, courseC
                             }
 
                             <label className="block mb-5">
-                                <input className="px-4 py-3.5 w-full text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="matricNumber" type="text" placeholder="Matric Number"/>
+                                <input className="px-4 py-3.5 w-full text-gray-500 font-medium placeholder-gray-500 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" id="matricNumber" type="text" placeholder="Email"/>
                             </label>
 
                             {loading?
