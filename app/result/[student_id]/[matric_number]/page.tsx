@@ -20,7 +20,7 @@ export default async function Result({ params }: { params: { student_id: any, ma
 
                 <div className="relative z-10 container px-4 mx-auto">
 
-                    <ResultHeading headingContent={params.matric_number}/>
+                    <ResultHeading/>
 
                     <ResultSection studentId={params.student_id}/>
                     

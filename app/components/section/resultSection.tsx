@@ -88,26 +88,18 @@ export default function ResultSection(props: { studentId: any}){
                                 <div className="stat-figure text-primary">
                                     <BiMessageAltCheck style={{ fontSize: "30px" }} />
                                 </div>
-                                <div className="stat-title">Score</div>
+                                <div className="stat-title">Your Score</div>
                                 <div className="stat-value text-primary">{score}</div>
-                                <div className="stat-desc">{status}</div>
+                                <div className="stat-desc">You {status}</div>
                             </div>
 
                             <div className="stat">
                                 <div className="stat-figure text-secondary">
                                     <HiOutlineExclamationTriangle style={{ fontSize: "30px" }} />
                                 </div>
-                                <div className="stat-title">Questions failed</div>
+                                <div className="stat-title">Questions you failed</div>
                                 <div className="stat-value text-secondary">{failedScore} Questions</div>
                                 <div className="stat-desc"></div>
-                            </div>
-
-                            <div className="stat">
-                                <Link href="/practice/inputMatric">
-                                    <div className="stat bg-primary text-white rounded">
-                                        <div className="stat-value">Practice<br />Again</div>
-                                    </div>
-                                </Link>
                             </div>
 
                         </div>
