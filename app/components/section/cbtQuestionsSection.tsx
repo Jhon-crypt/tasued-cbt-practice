@@ -134,7 +134,7 @@ export default function CbtQuestions(props: { student_id: any, practice_id : any
 
                     console.log("Updated")
 
-                    window.location.href= `https://tasued-cbt-practice.vercel.app/${props.student_id}`
+                    window.location.href= `https://tasued-cbt-practice.vercel.app/result/${props.student_id}`
                     
                 }
 
